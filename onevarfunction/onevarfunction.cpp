@@ -1,4 +1,5 @@
 #include "onevarfunction.h"
+#include "inputparser/inputparser.h"
 
 OneVarFunctionValues OneVarFunction::calculateValues(Range<float> range)
 {
@@ -13,4 +14,17 @@ bool OneVarFunction::validateRange(Range<float> range)
 	float to = range.getTo();
 
 	return  hasValue(from) && hasValue(to) && from < to;
+}
+
+OneVarFunction::OneVarFunction(string suffix = "", string standard = "")
+{
+    if(suffix.length() != 0)
+    {
+        suffixNotation = suffix;
+    }
+
+    if(standard.length() != 0)
+    {
+        standardNotation = standard;
+    }
 }

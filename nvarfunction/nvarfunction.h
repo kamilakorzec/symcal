@@ -10,7 +10,7 @@ class NVarFunction
 public:
     string toSuffixNotation() { return suffixNotation; }
     string toStandardNotation() { return standardNotation; }
-    ~NVarFunction();
+    ~NVarFunction() {}
 
 protected:
     string representation[];

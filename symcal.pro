@@ -31,8 +31,6 @@ SOURCES += \
     onevarfunctionparser/onevarfunctionparser.cpp \
     onevarfunctionvalues/onevarfunctionvalues.cpp \
     operators/operators.cpp \
-    point/point.cpp \
-    range/range.cpp \
 
 HEADERS += \
         symcal.h \

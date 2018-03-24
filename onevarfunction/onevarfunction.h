@@ -6,10 +6,12 @@
 #include "nvarfunction/nvarfunction.h"
 
 
-class OneVarFunction : public NVarFunction
+class OneVarFunction : NVarFunction
 {
 public:
-	OneVarFunctionValues calculateValues(Range<float> range);
+    OneVarFunctionValues calculateValues(Range<float> range);
+    OneVarFunction(string suffix, string standard);
+    ~OneVarFunction() {}
 
 private:
     bool validateRange(Range<float> range);
