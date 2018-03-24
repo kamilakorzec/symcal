@@ -3,7 +3,9 @@
 
 #include <range.h>
 #include <point.h>
-#include <stdlib.h>
+#include <vector>
+
+using namespace std;
 
 class OneVarFunctionValues
 {

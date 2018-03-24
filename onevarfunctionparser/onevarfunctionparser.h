@@ -4,6 +4,7 @@
 #include <string>
 #include <onevarfunction.h>
 
+using namespace std;
 
 class OneVarFunctionParser
 {

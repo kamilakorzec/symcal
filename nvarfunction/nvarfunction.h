@@ -3,12 +3,13 @@
 
 #include <string>
 
+using namespace std;
 
 class NVarFunction
 {
 public:
-	string toSuffixNotation();
-	string toStandardNotation();
+	string toSuffixNotation() { return suffixNotation};
+	string toStandardNotation() { return standardNotation };
 	~NVarFunction;
 
 protected:
