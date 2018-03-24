@@ -2,7 +2,8 @@
 #define ONE_VAR_FUNCTION_PARSER_H
 
 #include <string>
-#include <onevarfunction.h>
+#include "onevarfunction/onevarfunction.h"
+#include "operators/operators.h"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ public:
 	OneVarFunction fromStandardNotation(string input);
 
 private:
-	string[] operators;
+    Operators operators;
 };
 
 #endif // ONE_VAR_FUNCTION_PARSER_H

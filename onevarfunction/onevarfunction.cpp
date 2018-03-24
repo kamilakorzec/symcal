@@ -5,9 +5,10 @@ OneVarFunctionValues OneVarFunction::calculateValues(Range<float> range)
 	return OneVarFunctionValues();
 }
 
+bool hasValue(float val) { return val > INT_MIN; }
+
 bool OneVarFunction::validateRange(Range<float> range)
 {
-	bool hasValue(float val) { return val > INT_MIN };
 	float from = range.getFrom();
 	float to = range.getTo();
 

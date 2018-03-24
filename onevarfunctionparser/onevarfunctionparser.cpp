@@ -2,10 +2,12 @@
 
 OneVarFunction OneVarFunctionParser::fromSuffixNotation(string input)
 {
-	return OneVarFunction();
+    OneVarFunction ovf;
+    return ovf;
 }
 
 OneVarFunction OneVarFunctionParser::fromStandardNotation(string input)
 {
-	return OneVarFunction();
+    OneVarFunction ovf;
+    return ovf;
 }

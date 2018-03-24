@@ -8,8 +8,7 @@ using namespace std;
 class InputParser 
 {
 public:
-	string parse(string input);
-	~InputParser;
+    string parse(string input);
 
 private:
 	string sanitize(string input);

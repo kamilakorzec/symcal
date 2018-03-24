@@ -1,17 +1,18 @@
 #ifndef ONE_VAR_FUNCTION_H
 #define ONE_VAR_FUNCTION_H
 
-#include <range.h>
-#include <onevarfunctionvalues.h>
+#include "range/range.h"
+#include "onevarfunctionvalues/onevarfunctionvalues.h"
+#include "nvarfunction/nvarfunction.h"
 
 
-class OneVarFunction:NVarFunction
+class OneVarFunction : public NVarFunction
 {
 public:
 	OneVarFunctionValues calculateValues(Range<float> range);
 
 private:
-	bool validateRange(Range<float> range)
+    bool validateRange(Range<float> range);
 };
 
 #endif // ONE_VAR_FUNCTION_H

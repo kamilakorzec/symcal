@@ -8,12 +8,12 @@ using namespace std;
 class NVarFunction
 {
 public:
-	string toSuffixNotation() { return suffixNotation};
-	string toStandardNotation() { return standardNotation };
-	~NVarFunction;
+    string toSuffixNotation() { return suffixNotation; }
+    string toStandardNotation() { return standardNotation; }
+    ~NVarFunction();
 
 protected:
-	string[] representation;
+    string representation[];
 	string suffixNotation;
 	string standardNotation;
 };

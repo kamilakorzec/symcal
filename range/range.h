@@ -5,8 +5,8 @@
 template <class T> class Range
 {
 public:
-	T getFrom() { return from };
-	T getTo() { return to };
+    T getFrom() { return from; }
+    T getTo() { return to; }
 
 private:
 	T from;

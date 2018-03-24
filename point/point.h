@@ -6,8 +6,8 @@
 class Point
 {
 public:
-	float getX() { return x };
-	float getY() { return y };
+    float getX() { return x; }
+    float getY() { return y; }
 private:
 	float x;
 	float y;

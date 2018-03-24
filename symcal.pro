@@ -25,10 +25,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        symcal.cpp
+        symcal.cpp \
+    inputparser/inputparser.cpp \
+    onevarfunction/onevarfunction.cpp \
+    onevarfunctionparser/onevarfunctionparser.cpp \
+    onevarfunctionvalues/onevarfunctionvalues.cpp \
+    operators/operators.cpp \
+    point/point.cpp \
+    range/range.cpp \
 
 HEADERS += \
-        symcal.h
+        symcal.h \
+    inputparser/inputparser.h \
+    nvarfunction/nvarfunction.h \
+    onevarfunction/onevarfunction.h \
+    onevarfunctionparser/onevarfunctionparser.h \
+    onevarfunctionvalues/onevarfunctionvalues.h \
+    operators/operators.h \
+    point/point.h \
+    range/range.h \
 
 FORMS += \
         symcal.ui
