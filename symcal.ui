@@ -172,22 +172,6 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>620</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuSymCal">
-    <property name="title">
-     <string>SymCal</string>
-    </property>
-   </widget>
-   <addaction name="menuSymCal"/>
-  </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>

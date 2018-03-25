@@ -1,4 +1,4 @@
-#include "operations.h"
+#include "lib/operations.h"
 #include <math.h>
 
 float multiply(float x, float y) { return x * y; }

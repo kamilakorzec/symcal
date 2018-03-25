@@ -1,6 +1,11 @@
-#include "tokenizer.h"
+#include "lib/tokenizer.h"
 
-tokenizer::tokenizer()
+vector<Token<string>> Tokenizer::tokenizeStandard(string input)
+{
+
+}
+
+vector<Token<string>> Tokenizer::tokenizeSuffix(string input)
 {
 
 }

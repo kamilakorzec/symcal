@@ -1,5 +1,5 @@
-#include "onevarfunction.h"
-#include "inputparser/inputparser.h"
+#include "lib/onevarfunction.h"
+#include "lib/inputparser.h"
 #include <stdexcept>
 
 OneVarFunctionValues OneVarFunction::calculateValues(Range<float> range)

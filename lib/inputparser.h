@@ -8,11 +8,13 @@ using namespace std;
 class InputParser 
 {
 public:
-    string parse(string input);
+    string parseStandard(string input);
+    string parseSuffix(string input);
 
 private:
 	string sanitize(string input);
-	bool validate(string input);
+    bool validateStandard(string input);
+    bool validateSuffix(string input);
     void removeSpaces(string str);
     string copyString(string input);
 };

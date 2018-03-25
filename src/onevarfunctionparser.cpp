@@ -1,4 +1,4 @@
-#include "onevarfunctionparser.h"
+#include "lib/onevarfunctionparser.h"
 
 OneVarFunction OneVarFunctionParser::fromSuffixNotation(string input)
 {

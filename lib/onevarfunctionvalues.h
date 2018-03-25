@@ -1,8 +1,8 @@
 #ifndef ONE_VAR_FUNCTION_VALUES_H
 #define ONE_VAR_FUNCTION_VALUES_H
 
-#include "range/range.h"
-#include "point/point.h"
+#include "lib/range.h"
+#include "lib/point.h"
 #include <vector>
 
 using namespace std;

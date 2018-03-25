@@ -29,7 +29,6 @@ SOURCES += \
     src/inputparser.cpp \
     src/onevarfunction.cpp \
     src/onevarfunctionparser.cpp \
-    src/onevarfunctionvalues.cpp \
     src/operators.cpp \
     src/tokenizer.cpp \
     src/token.cpp \

@@ -1,6 +1,7 @@
-#include "inputparser.h"
-
+#include "lib/inputparser.h"
+#include <stdexcept>
 #include <algorithm>
+#include <ctype.h>
 
 string InputParser::copyString(string input) {
     char* str = new char[input.size() + 1];
@@ -14,19 +15,57 @@ void InputParser::removeSpaces(string str) {
     str.erase(std::remove(str.begin(), str.end(), ' '), str.end());
 }
 
-string InputParser::parse(string input)
+string InputParser::parseStandard(string input)
 {
-    string str = copyString(input);
+    string str = sanitize(input);
+    bool isValid = validateStandard(str);
 
-    return str;
+    if(isValid)
+    {
+        return str;
+    }
+    else
+    {
+        throw invalid_argument("Invalid input");
+        return "";
+    }
 }
 
 string InputParser::sanitize(string input)
 {
-	return string();
+    string str = copyString(input);
+    removeSpaces(str);
+
+    return str;
 }
 
-bool InputParser::validate(string input)
+bool InputParser::validateStandard(string input)
 {
-	return false;
+    int subsequentOperators = 0;
+    int openedBrackets = 0;
+    for(int i=0; i < input.length(); i++) {
+        char c = input[i];
+        if(!isdigit(c)) { //ignore all digits
+            if(isalpha(c) && c != 'x') return false;
+            else
+            {   //it can't be digit, space or x - it must be an operator
+                //there can be only one subsequent operator (different than bracket)
+                if(c == '(') subsequentOperators++;
+                else if(c == ')')
+                {
+                    if(openedBrackets < 1) return false;
+                    openedBrackets--;
+                }
+                else
+                {
+                    if(subsequentOperators) return false;
+                    subsequentOperators++;
+                }
+            }
+        }
+        else {
+            if(subsequentOperators) subsequentOperators = 0;
+        }
+    }
+    return true;
 }

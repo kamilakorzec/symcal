@@ -2,8 +2,8 @@
 #define ONE_VAR_FUNCTION_PARSER_H
 
 #include <string>
-#include "onevarfunction/onevarfunction.h"
-#include "operators/operators.h"
+#include "lib/onevarfunction.h"
+#include "lib/operators.h"
 
 using namespace std;
 

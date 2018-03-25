@@ -1,4 +1,4 @@
-#include "token.h"
+#include "lib/token.h"
 
 template <typename T>
 Token<T>::Token(T v, bool o) {

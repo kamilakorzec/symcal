@@ -1,9 +1,9 @@
 #ifndef ONE_VAR_FUNCTION_H
 #define ONE_VAR_FUNCTION_H
 
-#include "range/range.h"
-#include "onevarfunctionvalues/onevarfunctionvalues.h"
-#include "nvarfunction/nvarfunction.h"
+#include "lib/range.h"
+#include "lib/onevarfunctionvalues.h"
+#include "lib/nvarfunction.h"
 
 
 class OneVarFunction : NVarFunction

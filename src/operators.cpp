@@ -1,4 +1,4 @@
-#include "operators.h"
+#include "lib/operators.h"
 
 int Operators::getPriority(char c) {
     return operatorMap.at(c);
