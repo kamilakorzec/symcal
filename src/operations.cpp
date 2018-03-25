@@ -10,15 +10,19 @@ float noop(float x, float y) { return (float) INT_MAX; }
 
 Operations::Operations()
 {
-    map<char, funcSig> operations = {
-        {'(', *noop},
-        {'+', *add},
-        {'-', *subtract},
-        {')', *noop},
-        {'*', *multiply},
-        {'/', *divide},
-        {'^', *power}
+    map<char, funcSig> ops = {
+        {'(', noop},
+        {'+', add},
+        {'-', subtract},
+        {')', noop},
+        {'*', multiply},
+        {'/', divide},
+        {'^', power}
     };
 
-    ops = operations;
+    operations = ops;
+}
+
+funcSig Operations::getOperation(char c) {
+    return operations.at(c);
 }

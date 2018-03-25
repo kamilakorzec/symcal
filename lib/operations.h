@@ -11,10 +11,10 @@ class Operations
 {
 public:
     Operations();
-    funcSig getOperation();
+    funcSig getOperation(char c);
 
 private:
-    map<char, funcSig> ops;
+    map<char, funcSig> operations;
 };
 
 #endif // OPERATIONS_H

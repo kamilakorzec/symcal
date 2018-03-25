@@ -26,29 +26,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         symcal.cpp \
-    inputparser/inputparser.cpp \
-    onevarfunction/onevarfunction.cpp \
-    onevarfunctionparser/onevarfunctionparser.cpp \
-    onevarfunctionvalues/onevarfunctionvalues.cpp \
-    operators/operators.cpp \
-    tokenizer/tokenizer.cpp \
-    token/token.cpp \
-    operations/operations.cpp
+    src/inputparser.cpp \
+    src/onevarfunction.cpp \
+    src/onevarfunctionparser.cpp \
+    src/onevarfunctionvalues.cpp \
+    src/operators.cpp \
+    src/tokenizer.cpp \
+    src/token.cpp \
+    src/operations.cpp
 
 HEADERS += \
         symcal.h \
-    inputparser/inputparser.h \
-    nvarfunction/nvarfunction.h \
-    onevarfunction/onevarfunction.h \
-    onevarfunctionparser/onevarfunctionparser.h \
-    onevarfunctionvalues/onevarfunctionvalues.h \
-    operators/operators.h \
-    point/point.h \
-    range/range.h \
-    tokenizer/tokenizer.h \
-    tokenizer/tokenizer.h \
-    token/token.h \
-    operations/operations.h
+    lib/inputparser.h \
+    lib/nvarfunction.h \
+    lib/onevarfunction.h \
+    lib/onevarfunctionparser.h \
+    lib/onevarfunctionvalues.h \
+    lib/operators.h \
+    lib/point.h \
+    lib/range.h \
+    lib/tokenizer.h \
+    lib/tokenizer.h \
+    lib/token.h \
+    lib/operations.h
 
 FORMS += \
         symcal.ui
