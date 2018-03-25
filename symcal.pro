@@ -31,6 +31,9 @@ SOURCES += \
     onevarfunctionparser/onevarfunctionparser.cpp \
     onevarfunctionvalues/onevarfunctionvalues.cpp \
     operators/operators.cpp \
+    tokenizer/tokenizer.cpp \
+    token/token.cpp \
+    operations/operations.cpp
 
 HEADERS += \
         symcal.h \
@@ -42,6 +45,10 @@ HEADERS += \
     operators/operators.h \
     point/point.h \
     range/range.h \
+    tokenizer/tokenizer.h \
+    tokenizer/tokenizer.h \
+    token/token.h \
+    operations/operations.h
 
 FORMS += \
         symcal.ui

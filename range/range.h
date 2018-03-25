@@ -2,7 +2,7 @@
 #define RANGE_H
 
 
-template <class T> class Range
+template <typename T> class Range
 {
 public:
     T getFrom() { return from; }

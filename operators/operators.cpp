@@ -9,7 +9,7 @@ bool Operators::isOperator(char c) {
 }
 
 Operators::Operators() {
-    map<char, int> operatorMap = {
+    map<char, int> om = {
         {'(', 0},
         {'+', 1},
         {'-', 1},
@@ -19,4 +19,6 @@ Operators::Operators() {
         {'%', 2},
         {'^', 2}
     };
+
+    operatorMap = om;
 }

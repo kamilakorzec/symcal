@@ -1,9 +1,20 @@
 #include "onevarfunction.h"
 #include "inputparser/inputparser.h"
+#include <stdexcept>
 
 OneVarFunctionValues OneVarFunction::calculateValues(Range<float> range)
 {
-	return OneVarFunctionValues();
+    bool validRange = validateRange(range);
+    if(!validRange)
+    {
+        throw invalid_argument("invalid range");
+        return OneVarFunctionValues();
+    }
+    else
+    {
+
+        return OneVarFunctionValues();
+    }
 }
 
 bool hasValue(float val) { return val > INT_MIN; }

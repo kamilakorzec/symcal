@@ -13,7 +13,8 @@ public:
 private:
 	string sanitize(string input);
 	bool validate(string input);
-
+    void removeSpaces(string str);
+    string copyString(string input);
 };
 
 #endif // INPUT_PARSER_H
