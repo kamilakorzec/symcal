@@ -69,3 +69,24 @@ bool InputParser::validateStandard(string input)
     }
     return true;
 }
+
+bool InputParser::validateSuffix(string input) {
+    return true;
+}
+
+string InputParser::parseSuffix(string input)
+{
+    string str = copyString(input);
+
+    bool isValid = validateSuffix(str);
+
+    if(isValid)
+    {
+        return str;
+    }
+    else
+    {
+        throw invalid_argument("Invalid input");
+        return "";
+    }
+}

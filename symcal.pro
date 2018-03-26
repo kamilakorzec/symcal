@@ -32,7 +32,8 @@ SOURCES += \
     src/operators.cpp \
     src/tokenizer.cpp \
     src/token.cpp \
-    src/operations.cpp
+    src/operations.cpp \
+    ui_symcal.cpp
 
 HEADERS += \
         symcal.h \
@@ -47,7 +48,7 @@ HEADERS += \
     lib/tokenizer.h \
     lib/tokenizer.h \
     lib/token.h \
-    lib/operations.h
+    lib/operations.h \
+    ui_symcal.h
 
-FORMS += \
-        symcal.ui
+FORMS +=
