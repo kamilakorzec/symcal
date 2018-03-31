@@ -17,6 +17,11 @@ public:
 
 private:
     Ui::SymCal *ui;
+
+private slots:
+    void on_export_triggered();
+    void on_calculateValue_triggered();
+    void on_convert_triggered();
 };
 
 #endif // SYMCAL_H

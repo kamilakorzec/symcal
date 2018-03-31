@@ -24,6 +24,11 @@ QT_BEGIN_NAMESPACE
 
 class Ui_SymCal
 {
+private:
+    void setupCalcArea();
+    void setupConvertArea();
+    void setupLayout(QMainWindow *SymCal);
+
 public:
     QWidget *centralWidget;
     QWidget *gridLayoutWidget;
@@ -31,16 +36,16 @@ public:
     QWidget *widget;
     QWidget *widget_2;
     QTableWidget *tableWidget;
-    QPushButton *pushButton;
-    QLabel *label;
-    QLabel *label_2;
-    QDoubleSpinBox *doubleSpinBox;
-    QDoubleSpinBox *doubleSpinBox_2;
-    QPushButton *pushButton_2;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
-    QLineEdit *lineEdit;
-    QLabel *label_3;
+    QPushButton *calcButton;
+    QLabel *inputFromLabel;
+    QLabel *inputToLabel;
+    QDoubleSpinBox *calcFromInput;
+    QDoubleSpinBox *calcToInput;
+    QPushButton *convertButton;
+    QRadioButton *isSuffix;
+    QRadioButton *isStandard;
+    QLineEdit *functionInput;
+    QLabel *enterFormulaLabel;
     QMenuBar *menuBar;
     QMenu *menuSymCal;
     QToolBar *mainToolBar;
@@ -48,7 +53,6 @@ public:
 
     void setupUi(QMainWindow *SymCal);
     void retranslateUi(QMainWindow *SymCal);
-
 };
 
 namespace Ui {

@@ -12,3 +12,18 @@ SymCal::~SymCal()
 {
     delete ui;
 }
+
+void SymCal::on_calculateValue_triggered()
+{
+
+}
+
+void SymCal::on_convert_triggered()
+{
+
+}
+
+void SymCal::on_export_triggered()
+{
+
+}

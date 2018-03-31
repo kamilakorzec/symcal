@@ -1,13 +1,54 @@
 #include "ui_symcal.h"
 
-void Ui_SymCal::setupUi(QMainWindow *SymCal)
+void Ui_SymCal::setupCalcArea()
 {
+    calcToInput = new QDoubleSpinBox(widget);
+    calcToInput->setObjectName(QStringLiteral("calcToInput"));
+    calcToInput->setGeometry(QRect(110, 280, 62, 22));
 
-    if (SymCal->objectName().isEmpty())
-        SymCal->setObjectName(QStringLiteral("SymCal"));
+    calcFromInput = new QDoubleSpinBox(widget);
+    calcFromInput->setObjectName(QStringLiteral("calcFromInput"));
+    calcFromInput->setGeometry(QRect(110, 250, 62, 22));
 
-    SymCal->resize(620, 495);
+    calcButton = new QPushButton(widget);
+    calcButton->setObjectName(QStringLiteral("calcButton"));
+    calcButton->setGeometry(QRect(130, 150, 93, 28));
 
+}
+
+void Ui_SymCal::setupConvertArea()
+{
+    convertButton = new QPushButton(widget);
+    convertButton->setObjectName(QStringLiteral("convertButton"));
+    convertButton->setGeometry(QRect(130, 310, 93, 28));
+
+    inputFromLabel = new QLabel(widget);
+    inputFromLabel->setObjectName(QStringLiteral("label"));
+    inputFromLabel->setGeometry(QRect(20, 250, 55, 16));
+
+    inputToLabel = new QLabel(widget);
+    inputToLabel->setObjectName(QStringLiteral("label_2"));
+    inputToLabel->setGeometry(QRect(20, 280, 55, 16));
+
+    isStandard = new QRadioButton(widget);
+    isStandard->setObjectName(QStringLiteral("isStandard"));
+    isStandard->setGeometry(QRect(20, 120, 161, 20));
+
+    isSuffix = new QRadioButton(widget);
+    isSuffix->setObjectName(QStringLiteral("isSuffix"));
+    isSuffix->setGeometry(QRect(20, 80, 161, 20));
+
+    functionInput = new QLineEdit(widget);
+    functionInput->setObjectName(QStringLiteral("lineEdit"));
+    functionInput->setGeometry(QRect(20, 40, 201, 22));
+
+    enterFormulaLabel = new QLabel(widget);
+    enterFormulaLabel->setObjectName(QStringLiteral("enterFormulaLabel"));
+    enterFormulaLabel->setGeometry(QRect(20, 20, 121, 16));
+}
+
+void Ui_SymCal::setupLayout(QMainWindow *SymCal)
+{
     centralWidget = new QWidget(SymCal);
     centralWidget->setObjectName(QStringLiteral("centralWidget"));
 
@@ -31,46 +72,6 @@ void Ui_SymCal::setupUi(QMainWindow *SymCal)
     tableWidget = new QTableWidget(widget);
     tableWidget->setObjectName(QStringLiteral("tableWidget"));
     tableWidget->setGeometry(QRect(260, 210, 321, 141));
-
-    pushButton = new QPushButton(widget);
-    pushButton->setObjectName(QStringLiteral("pushButton"));
-    pushButton->setGeometry(QRect(130, 310, 93, 28));
-
-    label = new QLabel(widget);
-    label->setObjectName(QStringLiteral("label"));
-    label->setGeometry(QRect(20, 250, 55, 16));
-
-    label_2 = new QLabel(widget);
-    label_2->setObjectName(QStringLiteral("label_2"));
-    label_2->setGeometry(QRect(20, 280, 55, 16));
-
-    doubleSpinBox = new QDoubleSpinBox(widget);
-    doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
-    doubleSpinBox->setGeometry(QRect(110, 280, 62, 22));
-
-    doubleSpinBox_2 = new QDoubleSpinBox(widget);
-    doubleSpinBox_2->setObjectName(QStringLiteral("doubleSpinBox_2"));
-    doubleSpinBox_2->setGeometry(QRect(110, 250, 62, 22));
-
-    pushButton_2 = new QPushButton(widget);
-    pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-    pushButton_2->setGeometry(QRect(130, 150, 93, 28));
-
-    radioButton = new QRadioButton(widget);
-    radioButton->setObjectName(QStringLiteral("radioButton"));
-    radioButton->setGeometry(QRect(20, 120, 161, 20));
-
-    radioButton_2 = new QRadioButton(widget);
-    radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
-    radioButton_2->setGeometry(QRect(20, 80, 161, 20));
-
-    lineEdit = new QLineEdit(widget);
-    lineEdit->setObjectName(QStringLiteral("lineEdit"));
-    lineEdit->setGeometry(QRect(20, 40, 201, 22));
-
-    label_3 = new QLabel(widget);
-    label_3->setObjectName(QStringLiteral("label_3"));
-    label_3->setGeometry(QRect(20, 20, 121, 16));
 
     gridLayout->addWidget(widget, 0, 0, 1, 1);
 
@@ -96,6 +97,18 @@ void Ui_SymCal::setupUi(QMainWindow *SymCal)
     SymCal->setStatusBar(statusBar);
 
     menuBar->addAction(menuSymCal->menuAction());
+}
+
+void Ui_SymCal::setupUi(QMainWindow *SymCal)
+{
+    if (SymCal->objectName().isEmpty())
+        SymCal->setObjectName(QStringLiteral("SymCal"));
+
+    SymCal->resize(620, 495);
+
+    setupLayout(SymCal);
+    setupCalcArea();
+    setupConvertArea();
 
     retranslateUi(SymCal);
 
@@ -106,19 +119,19 @@ void Ui_SymCal::retranslateUi(QMainWindow *SymCal)
 {
     SymCal->setWindowTitle(QApplication::translate("SymCal", "SymCal", nullptr));
 
-    pushButton->setText(QApplication::translate("SymCal", "Calculate", nullptr));
+    calcButton->setText(QApplication::translate("SymCal", "Calculate", nullptr));
 
-    label->setText(QApplication::translate("SymCal", "From:", nullptr));
+    inputFromLabel->setText(QApplication::translate("SymCal", "From:", nullptr));
 
-    label_2->setText(QApplication::translate("SymCal", "To:", nullptr));
+    inputToLabel->setText(QApplication::translate("SymCal", "To:", nullptr));
 
-    pushButton_2->setText(QApplication::translate("SymCal", "Convert", nullptr));
+    convertButton->setText(QApplication::translate("SymCal", "Convert", nullptr));
 
-    radioButton->setText(QApplication::translate("SymCal", "Standard > Suffix", nullptr));
+    isStandard->setText(QApplication::translate("SymCal", "Standard > Suffix", nullptr));
 
-    radioButton_2->setText(QApplication::translate("SymCal", "Suffix > Standard", nullptr));
+    isSuffix->setText(QApplication::translate("SymCal", "Suffix > Standard", nullptr));
 
-    label_3->setText(QApplication::translate("SymCal", "Enter formula:", nullptr));
+    enterFormulaLabel->setText(QApplication::translate("SymCal", "Enter formula:", nullptr));
 
     menuSymCal->setTitle(QApplication::translate("SymCal", "SymCal", nullptr));
 } // retranslateUi
