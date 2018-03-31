@@ -9,12 +9,12 @@
 class OneVarFunction : NVarFunction
 {
 public:
-    OneVarFunctionValues calculateValues(Range<float> range);
+    OneVarFunctionValues* calculateValues(Range<double> range);
     OneVarFunction(string suffix, string standard);
     ~OneVarFunction() {}
 
 private:
-    bool validateRange(Range<float> range);
+    bool validateRange(Range<double> range);
 };
 
 #endif // ONE_VAR_FUNCTION_H

@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::SymCal *ui;
+    void connectSlots(Ui::SymCal *ui);
 
 private slots:
     void on_export_triggered();

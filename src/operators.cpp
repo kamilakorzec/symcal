@@ -9,6 +9,7 @@ bool Operators::isOperator(char c) {
 }
 
 Operators::Operators() {
+    //TODO: move keys to a set common with Operations, maybe?
     map<char, int> om = {
         {'(', 0},
         {'+', 1},

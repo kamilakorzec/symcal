@@ -93,7 +93,6 @@ void Ui_SymCal::setupLayout(QMainWindow *SymCal)
 
     statusBar = new QStatusBar(SymCal);
     statusBar->setObjectName(QStringLiteral("statusBar"));
-
     SymCal->setStatusBar(statusBar);
 
     menuBar->addAction(menuSymCal->menuAction());
@@ -111,8 +110,6 @@ void Ui_SymCal::setupUi(QMainWindow *SymCal)
     setupConvertArea();
 
     retranslateUi(SymCal);
-
-    QMetaObject::connectSlotsByName(SymCal);
 }
 
 void Ui_SymCal::retranslateUi(QMainWindow *SymCal)

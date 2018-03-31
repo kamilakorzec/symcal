@@ -2,24 +2,25 @@
 #include "lib/inputparser.h"
 #include <stdexcept>
 
-OneVarFunctionValues OneVarFunction::calculateValues(Range<float> range)
+OneVarFunctionValues* OneVarFunction::calculateValues(Range<double> range)
 {
     bool validRange = validateRange(range);
+    OneVarFunctionValues* vals = new OneVarFunctionValues(range);
     if(!validRange)
     {
         throw invalid_argument("invalid range");
-        return OneVarFunctionValues();
+        return vals;
     }
     else
     {
 
-        return OneVarFunctionValues();
+        return vals;
     }
 }
 
 bool hasValue(float val) { return val > INT_MIN; }
 
-bool OneVarFunction::validateRange(Range<float> range)
+bool OneVarFunction::validateRange(Range<double> range)
 {
 	float from = range.getFrom();
 	float to = range.getTo();

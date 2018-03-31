@@ -33,7 +33,8 @@ SOURCES += \
     src/tokenizer.cpp \
     src/token.cpp \
     src/operations.cpp \
-    ui_symcal.cpp
+    ui_symcal.cpp \
+    src/range.cpp
 
 HEADERS += \
         symcal.h \

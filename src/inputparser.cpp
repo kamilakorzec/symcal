@@ -1,4 +1,5 @@
 #include "lib/inputparser.h"
+#include "lib/operators.h"
 #include <stdexcept>
 #include <algorithm>
 #include <ctype.h>
@@ -43,6 +44,8 @@ bool InputParser::validateStandard(string input)
 {
     int subsequentOperators = 0;
     int openedBrackets = 0;
+    Operators o;
+
     for(int i=0; i < input.length(); i++) {
         char c = input[i];
         if(!isdigit(c)) { //ignore all digits
@@ -58,7 +61,8 @@ bool InputParser::validateStandard(string input)
                 }
                 else
                 {
-                    if(subsequentOperators) return false;
+                    if(subsequentOperators) return false; //there can't be two operators next to each other
+                    if(!o.isOperator(c)) return false; //no symbols other than operators are accepted
                     subsequentOperators++;
                 }
             }

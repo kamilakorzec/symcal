@@ -10,10 +10,14 @@ using namespace std;
 class OneVarFunctionValues
 {
 public:
+    OneVarFunctionValues(Range<double> r)
+    {
+        range = r;
+    }
 	vector<Point> getValues() { return values; }
 
 private:
-	Range<float> range;
+    Range<double> range;
 	vector<Point> values;
 };
 
