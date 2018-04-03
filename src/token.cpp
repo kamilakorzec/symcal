@@ -1,7 +1,13 @@
 #include "lib/token.h"
 
-template <typename T>
-Token<T>::Token(T v, bool o) {
+Token::Token(string v, bool o)
+{
     value = v;
     isOp = o;
+}
+
+Token::Token()
+{
+    value = "";
+    isOp = false;
 }

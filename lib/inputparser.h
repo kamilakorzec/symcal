@@ -15,7 +15,7 @@ private:
 	string sanitize(string input);
     bool validateStandard(string input);
     bool validateSuffix(string input);
-    void removeSpaces(string str);
+    string removeSpaces(string str);
     string copyString(string input);
 };
 

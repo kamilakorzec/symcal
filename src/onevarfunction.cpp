@@ -2,10 +2,10 @@
 #include "lib/inputparser.h"
 #include <stdexcept>
 
-OneVarFunctionValues* OneVarFunction::calculateValues(Range<double> range)
+OneVarFunctionValues OneVarFunction::calculateValues(Range<double> range)
 {
     bool validRange = validateRange(range);
-    OneVarFunctionValues* vals = new OneVarFunctionValues(range);
+    OneVarFunctionValues vals(range);
     if(!validRange)
     {
         throw invalid_argument("invalid range");

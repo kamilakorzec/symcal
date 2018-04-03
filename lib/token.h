@@ -1,17 +1,21 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
+#include<string>
 
-template <typename T> class Token
+using namespace std;
+
+class Token
 {
 public:
-    Token(T v, bool o);
-    T getValue() { return value; }
+    Token();
+    Token(string v, bool o);
+    string getValue() { return value; }
     bool isOperator() { return isOp; }
 
 private:
     bool isOp;
-    T value;
+    string value;
 
 };
 

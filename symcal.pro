@@ -34,7 +34,8 @@ SOURCES += \
     src/token.cpp \
     src/operations.cpp \
     ui_symcal.cpp \
-    src/range.cpp
+    src/range.cpp \
+    src/onevarfunctionvalues.cpp
 
 HEADERS += \
         symcal.h \

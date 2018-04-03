@@ -10,8 +10,8 @@ using namespace std;
 class Tokenizer
 {
 public:
-    vector<Token<string>> tokenizeStandard(string input);
-    vector<Token<string>> tokenizeSuffix(string input);
+    vector<Token> tokenizeStandard(string input);
+    vector<Token> tokenizeSuffix(string input);
 };
 
 #endif // TOKENIZER_H

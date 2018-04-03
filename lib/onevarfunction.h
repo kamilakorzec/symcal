@@ -5,11 +5,10 @@
 #include "lib/onevarfunctionvalues.h"
 #include "lib/nvarfunction.h"
 
-
 class OneVarFunction : NVarFunction
 {
 public:
-    OneVarFunctionValues* calculateValues(Range<double> range);
+    OneVarFunctionValues calculateValues(Range<double> range);
     OneVarFunction(string suffix, string standard);
     ~OneVarFunction() {}
 

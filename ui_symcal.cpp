@@ -12,7 +12,7 @@ void Ui_SymCal::setupCalcArea()
 
     calcButton = new QPushButton(widget);
     calcButton->setObjectName(QStringLiteral("calcButton"));
-    calcButton->setGeometry(QRect(130, 150, 93, 28));
+    calcButton->setGeometry(QRect(130, 310, 93, 28));
 
 }
 
@@ -20,7 +20,7 @@ void Ui_SymCal::setupConvertArea()
 {
     convertButton = new QPushButton(widget);
     convertButton->setObjectName(QStringLiteral("convertButton"));
-    convertButton->setGeometry(QRect(130, 310, 93, 28));
+    convertButton->setGeometry(QRect(130, 150, 93, 28));
 
     inputFromLabel = new QLabel(widget);
     inputFromLabel->setObjectName(QStringLiteral("label"));
@@ -33,6 +33,7 @@ void Ui_SymCal::setupConvertArea()
     isStandard = new QRadioButton(widget);
     isStandard->setObjectName(QStringLiteral("isStandard"));
     isStandard->setGeometry(QRect(20, 120, 161, 20));
+    isStandard->setChecked(true);
 
     isSuffix = new QRadioButton(widget);
     isSuffix->setObjectName(QStringLiteral("isSuffix"));

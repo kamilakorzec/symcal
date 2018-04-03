@@ -8,6 +8,7 @@ OneVarFunction OneVarFunctionParser::fromSuffixNotation(string input)
 
 OneVarFunction OneVarFunctionParser::fromStandardNotation(string input)
 {
+
     for(int i = 0; i < input.length(); i++) {
         if(input[i] != ' ') {
             if(operators.isOperator(input[i])) {

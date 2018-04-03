@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <ctype.h>
 
+#include <iostream>
+
 string InputParser::copyString(string input) {
     char* str = new char[input.size() + 1];
     copy(input.begin(), input.end(), str);
@@ -12,13 +14,18 @@ string InputParser::copyString(string input) {
     return string(str);
 }
 
-void InputParser::removeSpaces(string str) {
-    str.erase(std::remove(str.begin(), str.end(), ' '), str.end());
+string InputParser::removeSpaces(string str) {
+   str.erase(remove_if(str.begin(), str.end(), [](char c)
+   {
+       return std::isspace(static_cast<unsigned char>(c));
+   }), str.end());
+
+   return str;
 }
 
 string InputParser::parseStandard(string input)
 {
-    string str = sanitize(input);
+    string str = removeSpaces(sanitize(input));
     bool isValid = validateStandard(str);
 
     if(isValid)
@@ -48,12 +55,23 @@ bool InputParser::validateStandard(string input)
 
     for(int i=0; i < input.length(); i++) {
         char c = input[i];
-        if(!isdigit(c)) { //ignore all digits
-            if(isalpha(c) && c != 'x') return false;
-            else
+
+        //TODO: remove
+        cout << c << endl;
+
+        if(!isdigit(c) && c != 'x') { //ignore all digits
+            if(isalpha(c))
+            {
+                return false;
+            }
+            else if(c != 'x')
             {   //it can't be digit, space or x - it must be an operator
                 //there can be only one subsequent operator (different than bracket)
-                if(c == '(') subsequentOperators++;
+                if(c == '(')
+                {
+                    subsequentOperators++;
+                    openedBrackets++;
+                }
                 else if(c == ')')
                 {
                     if(openedBrackets < 1) return false;
@@ -68,7 +86,17 @@ bool InputParser::validateStandard(string input)
             }
         }
         else {
-            if(subsequentOperators) subsequentOperators = 0;
+            if(subsequentOperators)
+            {
+                subsequentOperators = 0;
+            }
+            if(c == 'x')
+            {
+                if(input[i-1] == c)
+                {
+                    return false;
+                }
+            }
         }
     }
     return true;
