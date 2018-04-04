@@ -1,5 +1,6 @@
 #include <QString>
 #include <QCoreApplication>
+#include <stdexcept>
 #include "symcal.h"
 #include "ui_symcal.h"
 #include "lib/range.h"
@@ -51,9 +52,9 @@ void SymCal::on_convert_triggered()
         {
             string parsed = inputParser.parseSuffix(functionFormula);
         }
-        catch(string e)
+        catch(invalid_argument e)
         {
-            cerr<<e;
+            cout<<e.what()<<endl;
         }
     }
     else
@@ -65,9 +66,9 @@ void SymCal::on_convert_triggered()
             //TODO: remove;
             cout<<parsed<<endl;
         }
-        catch(string e)
+        catch(invalid_argument e)
         {
-            cerr<<e;
+            cout<<e.what()<<endl;
         }
     }
 }
