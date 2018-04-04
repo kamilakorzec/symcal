@@ -1,13 +1,11 @@
 #include <QString>
 #include <QCoreApplication>
 #include <stdexcept>
+#include <iostream>
 #include "symcal.h"
 #include "ui_symcal.h"
 #include "lib/range.h"
 #include "lib/inputparser.h"
-
-//to remove
-#include <iostream>
 
 SymCal::SymCal(QWidget *parent) :
     QMainWindow(parent),
