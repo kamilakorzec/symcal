@@ -125,9 +125,9 @@ void Ui_SymCal::retranslateUi(QMainWindow *SymCal)
 
     convertButton->setText(QApplication::translate("SymCal", "Convert", nullptr));
 
-    isStandard->setText(QApplication::translate("SymCal", "Standard > Suffix", nullptr));
+    isStandard->setText(QApplication::translate("SymCal", "Infix > Postfix", nullptr));
 
-    isSuffix->setText(QApplication::translate("SymCal", "Suffix > Standard", nullptr));
+    isSuffix->setText(QApplication::translate("SymCal", "Postfix > Infix", nullptr));
 
     enterFormulaLabel->setText(QApplication::translate("SymCal", "Enter formula:", nullptr));
 

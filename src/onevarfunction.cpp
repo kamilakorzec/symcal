@@ -28,15 +28,9 @@ bool OneVarFunction::validateRange(Range<double> range)
 	return  hasValue(from) && hasValue(to) && from < to;
 }
 
-OneVarFunction::OneVarFunction(string suffix = "", string standard = "")
+OneVarFunction::OneVarFunction(vector<Token> tokens, string suffix = "", string standard = "")
 {
-    if(suffix.length() != 0)
-    {
-        suffixNotation = suffix;
-    }
-
-    if(standard.length() != 0)
-    {
-        standardNotation = standard;
-    }
+    suffixNotation = suffix;
+    standardNotation = standard;
+    representation = tokens;
 }

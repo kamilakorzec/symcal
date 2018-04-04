@@ -4,8 +4,6 @@
 #include <algorithm>
 #include <ctype.h>
 
-#include <iostream>
-
 string InputParser::copyString(string input) {
     char* str = new char[input.size() + 1];
     copy(input.begin(), input.end(), str);
@@ -34,7 +32,7 @@ string InputParser::parseStandard(string input)
     }
     else
     {
-        throw invalid_argument("Invalid input");
+        throw invalid_argument("Invalid input: " + str);
         return "";
     }
 }
@@ -42,9 +40,8 @@ string InputParser::parseStandard(string input)
 string InputParser::sanitize(string input)
 {
     string str = copyString(input);
-    removeSpaces(str);
 
-    return str;
+    return removeSpaces(str);
 }
 
 bool InputParser::validateStandard(string input)
@@ -53,11 +50,8 @@ bool InputParser::validateStandard(string input)
     int openedBrackets = 0;
     Operators o;
 
-    for(int i=0; i < input.length(); i++) {
+    for(unsigned int i=0; i < input.length(); i++) {
         char c = input[i];
-
-        //TODO: remove
-        cout << c << endl;
 
         if(!isdigit(c) && c != 'x') { //ignore all digits
             if(isalpha(c))
@@ -99,6 +93,13 @@ bool InputParser::validateStandard(string input)
             }
         }
     }
+
+    char last = input[input.length() - 1];
+    if(o.isOperator(last) && last != ')')
+    {
+        return false;
+    }
+
     return true;
 }
 
@@ -118,7 +119,7 @@ string InputParser::parseSuffix(string input)
     }
     else
     {
-        throw invalid_argument("Invalid input");
+        throw invalid_argument("Invalid input: " + str);
         return "";
     }
 }

@@ -9,12 +9,14 @@ class Token
 {
 public:
     Token();
-    Token(string v, bool o);
+    Token(string v, bool o, bool var);
     string getValue() { return value; }
     bool isOperator() { return isOp; }
+    bool isVariable() { return isVar; }
 
 private:
     bool isOp;
+    bool isVar;
     string value;
 
 };

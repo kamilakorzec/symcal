@@ -9,7 +9,7 @@ class OneVarFunction : NVarFunction
 {
 public:
     OneVarFunctionValues calculateValues(Range<double> range);
-    OneVarFunction(string suffix, string standard);
+    OneVarFunction(vector<Token> tokens, string suffix, string standard);
     ~OneVarFunction() {}
 
 private:
