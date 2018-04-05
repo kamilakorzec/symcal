@@ -2,6 +2,7 @@
 #define SYMCAL_H
 
 #include <QMainWindow>
+#include "lib/onevarfunction.h"
 
 namespace Ui {
 class SymCal;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::SymCal *ui;
+    OneVarFunction func;
     void connectSlots(Ui::SymCal *ui);
 
 private slots:

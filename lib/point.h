@@ -6,11 +6,16 @@
 class Point
 {
 public:
-    float getX() { return x; }
-    float getY() { return y; }
+    Point(double dx, double dy)
+    {
+        x = dx;
+        y = dy;
+    }
+    double getX() { return x; }
+    double getY() { return y; }
 private:
-	float x;
-	float y;
+    double x;
+    double y;
 };
 
 #endif // POINT_H

@@ -3,6 +3,7 @@
 
 #include "lib/range.h"
 #include "lib/point.h"
+#include "lib/token.h"
 #include <vector>
 
 using namespace std;
@@ -10,7 +11,7 @@ using namespace std;
 class OneVarFunctionValues
 {
 public:
-    OneVarFunctionValues(Range<double> r);
+    OneVarFunctionValues(Range<double> r, vector<Token> tokens);
 	vector<Point> getValues() { return values; }
 
 private:

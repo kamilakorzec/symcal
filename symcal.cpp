@@ -6,6 +6,7 @@
 #include "ui_symcal.h"
 #include "lib/range.h"
 #include "lib/inputparser.h"
+#include "lib/onevarfunctionparser.h"
 
 SymCal::SymCal(QWidget *parent) :
     QMainWindow(parent),
@@ -35,11 +36,21 @@ void SymCal::on_calculateValue_triggered()
 
     std::cout << "from:" << from << "to:" << to << endl;
 
+    if(func.isInitialized())
+    {
+        func.calculateValues(range);
+    }
+    else
+    {
+        cerr << "Can't calculate: no function!";
+    }
+
 }
 
 void SymCal::on_convert_triggered()
 {
     InputParser inputParser;
+    OneVarFunctionParser functionParser;
 
     string functionFormula = ui->functionInput->text().toStdString();
     bool toStandard = ui->isSuffix->isChecked();
@@ -52,7 +63,7 @@ void SymCal::on_convert_triggered()
         }
         catch(invalid_argument e)
         {
-            cout<<e.what()<<endl;
+            cerr<<e.what()<<endl;
         }
     }
     else
@@ -60,18 +71,17 @@ void SymCal::on_convert_triggered()
         try
         {
             string parsed = inputParser.parseStandard(functionFormula);
+            func = functionParser.fromStandardNotation(parsed);
 
             //TODO: remove;
-            cout<<parsed<<endl;
+            cout<<"Input:"<<parsed<<endl;
+            cout<<"Output:"<<func.toSuffixNotation()<<endl;
         }
         catch(invalid_argument e)
         {
-            cout<<e.what()<<endl;
+            cerr<<e.what()<<endl;
         }
     }
 }
 
-void SymCal::on_export_triggered()
-{
-
-}
+void SymCal::on_export_triggered() {}

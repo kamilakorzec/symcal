@@ -18,7 +18,7 @@ Operators::Operators() {
         {'*', 2},
         {'/', 2},
         {'%', 2},
-        {'^', 2}
+        {'^', 3}
     };
 
     operatorMap = om;

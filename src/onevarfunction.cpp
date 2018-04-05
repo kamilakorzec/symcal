@@ -5,7 +5,7 @@
 OneVarFunctionValues OneVarFunction::calculateValues(Range<double> range)
 {
     bool validRange = validateRange(range);
-    OneVarFunctionValues vals(range);
+    OneVarFunctionValues vals(range, representation);
     if(!validRange)
     {
         throw invalid_argument("invalid range");
@@ -33,4 +33,5 @@ OneVarFunction::OneVarFunction(vector<Token> tokens, string suffix = "", string 
     suffixNotation = suffix;
     standardNotation = standard;
     representation = tokens;
+    initialized = true;
 }

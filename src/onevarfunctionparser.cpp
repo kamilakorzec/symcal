@@ -2,6 +2,7 @@
 #include <vector>
 #include <stack>
 #include <sstream>
+#include <iostream>
 
 OneVarFunction OneVarFunctionParser::fromSuffixNotation(string input)
 {
@@ -66,7 +67,7 @@ OneVarFunction OneVarFunctionParser::fromStandardNotation(string input)
                 Token t(tmp.str(), false, false);
                 tokens.push_back(t);
 
-                tmp.flush();
+                tmp.str(string());
             }
             if(isVariable)
             {
@@ -82,16 +83,16 @@ OneVarFunction OneVarFunctionParser::fromStandardNotation(string input)
                 stringstream ss;
                 ss << c;
 
-                Token previous = queue.top();
-                int previousPriority = operators.getPriority(previous.getValue()[0]);
+                Token previous;
+                int previousPriority = INT_MAX;
 
-                while(!queue.empty() && previousPriority >= newPriority)
+                while(!queue.empty() && previousPriority < newPriority)
                 {
-                    tokens.push_back(previous);
-                    queue.pop();
-
                     previous = queue.top();
                     previousPriority = operators.getPriority(previous.getValue()[0]);
+
+                    tokens.push_back(previous);
+                    queue.pop();
                 }
 
                 Token t(ss.str(), isOperator, isVariable);
@@ -103,7 +104,13 @@ OneVarFunction OneVarFunctionParser::fromStandardNotation(string input)
         }
     }
 
-    tmp.flush(); // just to be sure
+    if(tmp.str().length())
+    {
+        Token t(tmp.str(), false, false);
+        tokens.push_back(t);
+
+        tmp.str(string());
+    };
 
     while(!queue.empty())
     {
