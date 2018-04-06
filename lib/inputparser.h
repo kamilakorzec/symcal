@@ -5,6 +5,11 @@
 
 using namespace std;
 
+/*
+ * InputParser class
+ * Parses, validates and sanitizes input from UI
+ * To meet standards used in OneVarFunctionParser
+ */
 class InputParser 
 {
 public:

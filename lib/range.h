@@ -1,7 +1,10 @@
 #ifndef RANGE_H
 #define RANGE_H
 
-
+/*
+ * Range class
+ * Represents range (from, to) for calculating values of function
+ */
 template <typename T> class Range
 {
 public:

@@ -1,8 +1,10 @@
 #ifndef POINT_H
 #define POINT_H
 
-
-
+/*
+ * Point class
+ * Represents 2D point (x,y)
+ */
 class Point
 {
 public:

@@ -7,6 +7,11 @@
 
 using namespace std;
 
+/*
+ * OneVarFunctionParser class
+ * Contains two main methods parsing input string and
+ * returning OneVarFunction class instance.
+ */
 class OneVarFunctionParser
 {
 public:

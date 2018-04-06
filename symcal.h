@@ -8,6 +8,10 @@ namespace Ui {
 class SymCal;
 }
 
+/*
+ * Main class
+ * Setups UI and is responsible for event handling
+ */
 class SymCal : public QMainWindow
 {
     Q_OBJECT

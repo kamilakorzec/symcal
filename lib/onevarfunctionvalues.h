@@ -8,6 +8,10 @@
 
 using namespace std;
 
+/*
+ * OneVarFunctionValues class
+ * Contains a vector of (x,y) points calculated for given range
+ */
 class OneVarFunctionValues
 {
 public:

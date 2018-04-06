@@ -7,6 +7,11 @@
 
 using namespace std;
 
+/*
+ * Class Tokenizer
+ * Consists of two methods converting string into a vector of Tokens
+ * Used in parser
+ */
 class Tokenizer
 {
 public:

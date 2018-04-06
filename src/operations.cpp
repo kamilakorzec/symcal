@@ -1,12 +1,12 @@
 #include "lib/operations.h"
 #include <math.h>
 
-float multiply(float x, float y) { return x * y; }
-float add(float x, float y) { return x + y; }
-float subtract(float x, float y) { return x - y; }
-float divide(float x, float y) { return x / y; }
-float power(float x, float y) { return pow(x, y); }
-float noop(float x, float y) { return (float) INT_MAX; }
+float multiply(double x, double y) { return x * y; }
+float add(double x, double y) { return x + y; }
+float subtract(double x, double y) { return x - y; }
+float divide(double x, double y) { return x / y; }
+float power(double x, double y) { return pow(x, y); }
+float noop(double x, double y) { return (double) INT_MAX; }
 
 Operations::Operations()
 {

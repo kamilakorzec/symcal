@@ -23,14 +23,32 @@
 
 QT_BEGIN_NAMESPACE
 
+/*
+ * Class Ui_Symcal
+ * aggregates all UI elements and their layout
+ */
 class Ui_SymCal
 {
 private:
+    /*
+     * Setup area responsible for calculations
+     */
     void setupCalcArea();
+
+    /*
+     * Setup area responsible for function conversion
+     */
     void setupConvertArea();
+
+    /*
+     * Setup general layout
+     */
     void setupLayout(QMainWindow *SymCal);
 
 public:
+    /*
+     * Qt widgets - parts of UI
+     */
     QWidget *centralWidget;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -52,7 +70,14 @@ public:
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
+    /*
+     * Aggregate function - setup the whole UI
+     */
     void setupUi(QMainWindow *SymCal);
+
+    /*
+     * Set text labels in UI
+     */
     void retranslateUi(QMainWindow *SymCal);
 };
 

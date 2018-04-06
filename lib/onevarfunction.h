@@ -5,6 +5,10 @@
 #include "lib/onevarfunctionvalues.h"
 #include "lib/nvarfunction.h"
 
+/*
+ * OneVarFunction class
+ * Represents function with one used variable.
+ */
 class OneVarFunction : public NVarFunction
 {
 public:

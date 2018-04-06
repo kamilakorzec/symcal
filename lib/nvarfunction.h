@@ -7,6 +7,12 @@
 
 using namespace std;
 
+/*
+ * Parent class
+ * Represents function with n used variables
+ * Contains its representation in form of vector of tokens,
+ * and two strings representing postfix and infix notation.
+ */
 class NVarFunction
 {
 public:

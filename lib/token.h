@@ -5,6 +5,11 @@
 
 using namespace std;
 
+/*
+ * Token class
+ * Represents single token with its value
+ * Contains two flags to determine wheter token is variable or operator
+ */
 class Token
 {
 public:

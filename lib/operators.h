@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/*
+ * Operators class
+ * Contains map character -> operator
+ */
 class Operators
 {
 public:

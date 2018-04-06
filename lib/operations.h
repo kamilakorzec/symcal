@@ -5,8 +5,14 @@
 
 using namespace std;
 
-typedef float (* funcSig)(float p1, float p2);
+// define a single type to return operations as
+typedef float (* funcSig)(double p1, double p2);
 
+/*
+ * Operations class.
+ * Contains all available operations to perform on operands
+ * as well as their operators
+ */
 class Operations
 {
 public:
