@@ -5,10 +5,12 @@ void Ui_SymCal::setupCalcArea()
     calcToInput = new QDoubleSpinBox(widget);
     calcToInput->setObjectName(QStringLiteral("calcToInput"));
     calcToInput->setGeometry(QRect(110, 280, 62, 22));
+    calcToInput->setMinimum((double) -100);
 
     calcFromInput = new QDoubleSpinBox(widget);
     calcFromInput->setObjectName(QStringLiteral("calcFromInput"));
     calcFromInput->setGeometry(QRect(110, 250, 62, 22));
+    calcFromInput->setMinimum((double) -100);
 
     calcButton = new QPushButton(widget);
     calcButton->setObjectName(QStringLiteral("calcButton"));
