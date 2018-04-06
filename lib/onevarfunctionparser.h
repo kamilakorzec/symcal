@@ -10,8 +10,8 @@ using namespace std;
 class OneVarFunctionParser
 {
 public:
-	OneVarFunction fromSuffixNotation(string input);
-	OneVarFunction fromStandardNotation(string input);
+    OneVarFunction fromPostfixNotation(string input);
+    OneVarFunction fromInfixNotation(string input);
 
 private:
     Operators operators;

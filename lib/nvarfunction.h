@@ -10,8 +10,8 @@ using namespace std;
 class NVarFunction
 {
 public:
-    string toSuffixNotation() { return suffixNotation; }
-    string toStandardNotation() { return standardNotation; }
+    string toPostfixNotation() { return suffixNotation; }
+    string toInfixNotation() { return standardNotation; }
     ~NVarFunction() {}
 
 protected:

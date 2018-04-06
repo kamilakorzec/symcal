@@ -42,8 +42,8 @@ public:
     QDoubleSpinBox *calcFromInput;
     QDoubleSpinBox *calcToInput;
     QPushButton *convertButton;
-    QRadioButton *isSuffix;
-    QRadioButton *isStandard;
+    QRadioButton *isPostfix;
+    QRadioButton *isInfix;
     QLineEdit *functionInput;
     QLabel *enterFormulaLabel;
     QMenuBar *menuBar;

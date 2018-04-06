@@ -4,7 +4,7 @@
 #include <sstream>
 #include <iostream>
 
-OneVarFunction OneVarFunctionParser::fromSuffixNotation(string input)
+OneVarFunction OneVarFunctionParser::fromPostfixNotation(string input)
 {
     stringstream tmp;
     vector<Token> tokens;
@@ -48,7 +48,7 @@ OneVarFunction OneVarFunctionParser::fromSuffixNotation(string input)
     return ovf;
 }
 
-OneVarFunction OneVarFunctionParser::fromStandardNotation(string input)
+OneVarFunction OneVarFunctionParser::fromInfixNotation(string input)
 {
     stringstream tmp;
     stack<Token> queue;

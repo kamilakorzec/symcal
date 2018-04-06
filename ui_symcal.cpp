@@ -30,14 +30,14 @@ void Ui_SymCal::setupConvertArea()
     inputToLabel->setObjectName(QStringLiteral("label_2"));
     inputToLabel->setGeometry(QRect(20, 280, 55, 16));
 
-    isStandard = new QRadioButton(widget);
-    isStandard->setObjectName(QStringLiteral("isStandard"));
-    isStandard->setGeometry(QRect(20, 120, 161, 20));
-    isStandard->setChecked(true);
+    isInfix = new QRadioButton(widget);
+    isInfix->setObjectName(QStringLiteral("isInfix"));
+    isInfix->setGeometry(QRect(20, 120, 161, 20));
+    isInfix->setChecked(true);
 
-    isSuffix = new QRadioButton(widget);
-    isSuffix->setObjectName(QStringLiteral("isSuffix"));
-    isSuffix->setGeometry(QRect(20, 80, 161, 20));
+    isPostfix = new QRadioButton(widget);
+    isPostfix->setObjectName(QStringLiteral("isPostfix"));
+    isPostfix->setGeometry(QRect(20, 80, 161, 20));
 
     functionInput = new QLineEdit(widget);
     functionInput->setObjectName(QStringLiteral("lineEdit"));
@@ -125,9 +125,9 @@ void Ui_SymCal::retranslateUi(QMainWindow *SymCal)
 
     convertButton->setText(QApplication::translate("SymCal", "Convert", nullptr));
 
-    isStandard->setText(QApplication::translate("SymCal", "Infix > Postfix", nullptr));
+    isInfix->setText(QApplication::translate("SymCal", "Infix > Postfix", nullptr));
 
-    isSuffix->setText(QApplication::translate("SymCal", "Postfix > Infix", nullptr));
+    isPostfix->setText(QApplication::translate("SymCal", "Postfix > Infix", nullptr));
 
     enterFormulaLabel->setText(QApplication::translate("SymCal", "Enter formula:", nullptr));
 

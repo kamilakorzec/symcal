@@ -60,13 +60,13 @@ void SymCal::on_convert_triggered()
     OneVarFunctionParser functionParser;
 
     string functionFormula = ui->functionInput->text().toStdString();
-    bool toStandard = ui->isSuffix->isChecked();
+    bool toInfix = ui->isPostfix->isChecked();
 
-    if(toStandard)
+    if(toInfix)
     {
         try
         {
-            string parsed = inputParser.parseSuffix(functionFormula);
+            string parsed = inputParser.parsePostfix(functionFormula);
         }
         catch(invalid_argument e)
         {
@@ -77,12 +77,12 @@ void SymCal::on_convert_triggered()
     {
         try
         {
-            string parsed = inputParser.parseStandard(functionFormula);
-            func = functionParser.fromStandardNotation(parsed);
+            string parsed = inputParser.parseInfix(functionFormula);
+            func = functionParser.fromInfixNotation(parsed);
 
             //TODO: remove;
             cout<<"Input:"<<parsed<<endl;
-            cout<<"Output:"<<func.toSuffixNotation()<<endl;
+            cout<<"Output:"<<func.toPostfixNotation()<<endl;
         }
         catch(invalid_argument e)
         {

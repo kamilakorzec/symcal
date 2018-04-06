@@ -21,10 +21,10 @@ string InputParser::removeSpaces(string str) {
    return str;
 }
 
-string InputParser::parseStandard(string input)
+string InputParser::parseInfix(string input)
 {
     string str = removeSpaces(sanitize(input));
-    bool isValid = validateStandard(str);
+    bool isValid = validateInfix(str);
 
     if(isValid)
     {
@@ -44,7 +44,7 @@ string InputParser::sanitize(string input)
     return removeSpaces(str);
 }
 
-bool InputParser::validateStandard(string input)
+bool InputParser::validateInfix(string input)
 {
     int subsequentOperators = 0;
     int openedBrackets = 0;
@@ -103,15 +103,15 @@ bool InputParser::validateStandard(string input)
     return true;
 }
 
-bool InputParser::validateSuffix(string input) {
+bool InputParser::validatePostfix(string input) {
     return true;
 }
 
-string InputParser::parseSuffix(string input)
+string InputParser::parsePostfix(string input)
 {
     string str = copyString(input);
 
-    bool isValid = validateSuffix(str);
+    bool isValid = validatePostfix(str);
 
     if(isValid)
     {
