@@ -23,20 +23,14 @@ OneVarFunction OneVarFunctionParser::fromPostfixNotation(string input)
                 Token t(tmp.str(), false, false);
                 tokens.push_back(t);
 
-                tmp.flush();
+                tmp.str(string());
             }
             if(!isSpace) {
                 stringstream ss;
                 ss << c;
-
+                cout << c;
                 Token token(ss.str(), isOperator, isVariable);
                 tokens.push_back(token);
-
-                if(isVariable)
-                {
-                    Token multiply("*", isOperator, isVariable);
-                    tokens.push_back(multiply);
-                }
             }
         }
         else { //character
@@ -44,7 +38,26 @@ OneVarFunction OneVarFunctionParser::fromPostfixNotation(string input)
         }
     }
 
-    OneVarFunction ovf(tokens, input, "");
+    stack<string> infix;
+    for(vector<Token>::iterator it = tokens.begin(); it != tokens.end(); ++it)
+    {
+        // Push operands
+        if (!it->isOperator())
+        {
+           infix.push(it->getValue());
+        }
+
+        else
+        {
+            string op1 = infix.top();
+            infix.pop();
+            string op2 = infix.top();
+            infix.pop();
+            infix.push("(" + op2 + it->getValue() + op1 + ")");
+        }
+    }
+
+    OneVarFunction ovf(tokens, input, infix.top());
     return ovf;
 }
 
@@ -91,7 +104,10 @@ OneVarFunction OneVarFunctionParser::fromInfixNotation(string input)
                     while(!queue.empty() && previousPriority >= newPriority)
                     {
                         cout << "P:" << previousPriority << " C:" << newPriority << endl;
-                        tokens.push_back(previous);
+                        if(c != '(' && c != ')')
+                        {
+                            tokens.push_back(previous);
+                        }
                         queue.pop();
                     }
                 }
@@ -115,7 +131,11 @@ OneVarFunction OneVarFunctionParser::fromInfixNotation(string input)
 
     while(!queue.empty())
     {
-        tokens.push_back(queue.top());
+        Token token = queue.top();
+        if(token.getValue()[0] != '(' && token.getValue()[0] != ')')
+        {
+            tokens.push_back(queue.top());
+        }
         queue.pop();
     }
 

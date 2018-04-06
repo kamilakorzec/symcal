@@ -81,6 +81,7 @@ void Ui_SymCal::setupLayout(QMainWindow *SymCal)
     labels << "x" << "y";
     tableWidget->setHorizontalHeaderLabels(labels);
     tableWidget->verticalHeader()->setVisible(false);
+    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     gridLayout->addWidget(widget, 0, 0, 1, 1);
 

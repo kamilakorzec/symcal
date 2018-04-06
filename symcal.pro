@@ -32,7 +32,6 @@ SOURCES += \
     src/onevarfunction.cpp \
     src/onevarfunctionparser.cpp \
     src/operators.cpp \
-    src/tokenizer.cpp \
     src/token.cpp \
     src/operations.cpp \
     ui_symcal.cpp \
@@ -49,8 +48,6 @@ HEADERS += \
     lib/operators.h \
     lib/point.h \
     lib/range.h \
-    lib/tokenizer.h \
-    lib/tokenizer.h \
     lib/token.h \
     lib/operations.h \
     ui_symcal.h
