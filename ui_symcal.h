@@ -61,13 +61,12 @@ public:
     QDoubleSpinBox *calcFromInput;
     QDoubleSpinBox *calcToInput;
     QPushButton *convertButton;
+    QPushButton *exportButton;
     QRadioButton *isPostfix;
     QRadioButton *isInfix;
     QLineEdit *functionInput;
     QLabel *enterFormulaLabel;
-    QMenuBar *menuBar;
     QMenu *menuSymCal;
-    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     /*

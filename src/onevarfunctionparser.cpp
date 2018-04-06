@@ -103,9 +103,12 @@ OneVarFunction OneVarFunctionParser::fromInfixNotation(string input)
 
                     while(!queue.empty() && previousPriority >= newPriority)
                     {
-                        cout << "P:" << previousPriority << " C:" << newPriority << endl;
+                        previous = queue.top();
+                        previousPriority = operators.getPriority(previous.getValue()[0]);
+
                         if(c != '(' && c != ')')
                         {
+                            cout << previous.getValue() << endl;
                             tokens.push_back(previous);
                         }
                         queue.pop();
@@ -141,6 +144,7 @@ OneVarFunction OneVarFunctionParser::fromInfixNotation(string input)
 
     for(vector<Token>::iterator it = tokens.begin(); it != tokens.end(); ++it) {
         tmp << it->getValue() << ' ';
+        cout << it->getValue() << endl;
     }
 
     OneVarFunction ovf(tokens, tmp.str(), input);

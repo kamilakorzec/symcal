@@ -85,27 +85,15 @@ void Ui_SymCal::setupLayout(QMainWindow *SymCal)
 
     gridLayout->addWidget(widget, 0, 0, 1, 1);
 
+    exportButton = new QPushButton(widget);
+    exportButton->setObjectName(QStringLiteral("exportButton"));
+    exportButton->setGeometry(QRect(10, 310, 93, 28));
+
     SymCal->setCentralWidget(centralWidget);
-
-    menuBar = new QMenuBar(SymCal);
-    menuBar->setObjectName(QStringLiteral("menuBar"));
-    menuBar->setGeometry(QRect(0, 0, 620, 26));
-
-    menuSymCal = new QMenu(menuBar);
-    menuSymCal->setObjectName(QStringLiteral("menuSymCal"));
-
-    SymCal->setMenuBar(menuBar);
-
-    mainToolBar = new QToolBar(SymCal);
-    mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-
-    SymCal->addToolBar(Qt::TopToolBarArea, mainToolBar);
 
     statusBar = new QStatusBar(SymCal);
     statusBar->setObjectName(QStringLiteral("statusBar"));
     SymCal->setStatusBar(statusBar);
-
-    menuBar->addAction(menuSymCal->menuAction());
 }
 
 void Ui_SymCal::setupUi(QMainWindow *SymCal)
@@ -113,7 +101,7 @@ void Ui_SymCal::setupUi(QMainWindow *SymCal)
     if (SymCal->objectName().isEmpty())
         SymCal->setObjectName(QStringLiteral("SymCal"));
 
-    SymCal->resize(620, 495);
+    SymCal->resize(600, 410);
 
     setupLayout(SymCal);
     setupCalcArea();
@@ -134,11 +122,11 @@ void Ui_SymCal::retranslateUi(QMainWindow *SymCal)
 
     convertButton->setText(QApplication::translate("SymCal", "Convert", nullptr));
 
+    exportButton->setText(QApplication::translate("SymCal", "Calc + Export", nullptr));
+
     isInfix->setText(QApplication::translate("SymCal", "Infix > Postfix", nullptr));
 
     isPostfix->setText(QApplication::translate("SymCal", "Postfix > Infix", nullptr));
 
     enterFormulaLabel->setText(QApplication::translate("SymCal", "Enter formula:", nullptr));
-
-    menuSymCal->setTitle(QApplication::translate("SymCal", "SymCal", nullptr));
 } // retranslateUi

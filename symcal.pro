@@ -36,7 +36,8 @@ SOURCES += \
     src/operations.cpp \
     ui_symcal.cpp \
     src/range.cpp \
-    src/onevarfunctionvalues.cpp
+    src/onevarfunctionvalues.cpp \
+    src/exporter.cpp
 
 HEADERS += \
         symcal.h \
@@ -50,6 +51,7 @@ HEADERS += \
     lib/range.h \
     lib/token.h \
     lib/operations.h \
-    ui_symcal.h
+    ui_symcal.h \
+    lib/exporter.h
 
 FORMS +=

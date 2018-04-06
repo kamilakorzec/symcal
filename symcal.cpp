@@ -8,6 +8,7 @@
 #include "lib/range.h"
 #include "lib/inputparser.h"
 #include "lib/onevarfunctionparser.h"
+#include "lib/exporter.h"
 
 SymCal::SymCal(QWidget *parent) :
     QMainWindow(parent),
@@ -26,6 +27,28 @@ void SymCal::connectSlots()
 {
     connect(ui->calcButton, SIGNAL(released()), this, SLOT(on_calculateValue_triggered()));
     connect(ui->convertButton, SIGNAL(released()), this, SLOT(on_convert_triggered()));
+    connect(ui->exportButton, SIGNAL(released()), this, SLOT(on_export_triggered()));
+}
+
+OneVarFunctionValues SymCal::precalculateValues() {
+
+    double from = ui->calcFromInput->value();
+    double to = ui->calcToInput->value();
+
+    Range<double> range(from, to);
+
+    if(func.isInitialized())
+    {
+        OneVarFunctionValues ovfv = func.calculateValues(range);
+        vector<Point> vals = ovfv.getValues();
+
+        return ovfv;
+    }
+    else
+    {
+        throw "Can't calculate: no function!";
+    }
+
 }
 
 void SymCal::addAndFillChart(vector<Point> vals)
@@ -77,33 +100,27 @@ void SymCal::fillTable(vector<Point> vals, Range<double> range)
 
 void SymCal::on_calculateValue_triggered()
 {
-    double from = ui->calcFromInput->value();
-    double to = ui->calcToInput->value();
-
-    Range<double> range(from, to);
-
-    std::cout << "from:" << from << "to:" << to << endl;
-
-    if(func.isInitialized())
+    try
     {
-        try
-        {
-            OneVarFunctionValues ovfv = func.calculateValues(range);
-            vector<Point> vals = ovfv.getValues();
+        OneVarFunctionValues ovfv = precalculateValues();
+        vector<Point> vals = ovfv.getValues();
 
-            fillTable(vals, range);
-            addAndFillChart(vals);
-        }
-        catch(invalid_argument e)
-        {
-            cerr << e.what() << endl;
-        }
+        double from = ui->calcFromInput->value();
+        double to = ui->calcToInput->value();
+
+        Range<double> range(from, to);
+
+        fillTable(vals, range);
+        addAndFillChart(vals);
     }
-    else
+    catch (string e)
     {
-        cerr << "Can't calculate: no function!" << endl;
+        cerr << e << endl;
     }
-
+    catch (invalid_argument e)
+    {
+        cerr << e.what() << endl;
+    }
 }
 
 void SymCal::on_convert_triggered()
@@ -140,4 +157,33 @@ void SymCal::on_convert_triggered()
     }
 }
 
-void SymCal::on_export_triggered() {}
+void SymCal::on_export_triggered() {
+    {
+        try
+        {
+            OneVarFunctionValues ovfv = precalculateValues();
+            vector<Point> vals = ovfv.getValues();
+
+            double from = ui->calcFromInput->value();
+            double to = ui->calcToInput->value();
+
+            Range<double> range(from, to);
+
+            fillTable(vals, range);
+            addAndFillChart(vals);
+
+            Exporter exp;
+            OneVarFunction *f = &func;
+
+            exp.exportValues(f, ovfv);
+        }
+        catch (string e)
+        {
+            cerr << e << endl;
+        }
+        catch (invalid_argument e)
+        {
+            cerr << e.what() << endl;
+        }
+    }
+}

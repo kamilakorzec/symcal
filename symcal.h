@@ -26,6 +26,7 @@ private:
     void connectSlots();
     void addAndFillChart(vector<Point> vals);
     void fillTable(vector<Point> vals, Range<double> range);
+    OneVarFunctionValues precalculateValues();
 
 private slots:
     void on_export_triggered();
