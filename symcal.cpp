@@ -2,6 +2,7 @@
 #include <QCoreApplication>
 #include <stdexcept>
 #include <iostream>
+#include <sstream>
 #include "symcal.h"
 #include "ui_symcal.h"
 #include "lib/range.h"
@@ -40,7 +41,32 @@ void SymCal::on_calculateValue_triggered()
     {
         try
         {
-            func.calculateValues(range);
+            OneVarFunctionValues ovfv = func.calculateValues(range);
+            vector<Point> vals = ovfv.getValues();
+
+            ui->tableWidget->setRowCount((int)(to-from)/0.01);
+
+            for(vector<Point>::iterator it = vals.begin(); it != vals.end(); ++it)
+            {
+                int dist = distance(vals.begin(), it);
+
+                QLabel* labelx = new QLabel(ui->tableWidget);
+                QLabel* labely = new QLabel(ui->tableWidget);
+
+                labelx->setText(QString::fromStdString(to_string(it->getX())));
+                labely->setText(QString::fromStdString(to_string(it->getY())));
+
+                ui->tableWidget->setCellWidget(
+                            dist,
+                            0,
+                            labelx
+                            );
+                ui->tableWidget->setCellWidget(
+                            dist,
+                            1,
+                            labely
+                            );
+            }
         }
         catch(invalid_argument e)
         {

@@ -73,6 +73,12 @@ void Ui_SymCal::setupLayout(QMainWindow *SymCal)
     tableWidget = new QTableWidget(widget);
     tableWidget->setObjectName(QStringLiteral("tableWidget"));
     tableWidget->setGeometry(QRect(260, 210, 321, 141));
+    tableWidget->setColumnCount(2);
+    tableWidget->setRowCount(100);
+    QStringList labels;
+    labels << "x" << "y";
+    tableWidget->setHorizontalHeaderLabels(labels);
+    tableWidget->verticalHeader()->setVisible(false);
 
     gridLayout->addWidget(widget, 0, 0, 1, 1);
 
