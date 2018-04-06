@@ -1,14 +1,17 @@
 #include "lib/operators.h"
 
-int Operators::getPriority(char c) {
+int Operators::getPriority(char c)
+{
     return operatorMap.at(c);
 }
 
-bool Operators::isOperator(char c) {
+bool Operators::isOperator(char c)
+{
     return operatorMap.find(c) != operatorMap.end();
 }
 
-Operators::Operators() {
+Operators::Operators()
+{
     //TODO: move keys to a set common with Operations, maybe?
     map<char, int> om = {
         {'(', 0},

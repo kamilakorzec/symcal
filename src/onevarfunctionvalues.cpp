@@ -11,10 +11,12 @@ OneVarFunctionValues::OneVarFunctionValues(Range<double> r, vector<Token> tokens
 
     Operations operations;
 
-    for(double i = r.getFrom(); i < r.getTo() + DX; i += DX) {
+    for(double i = r.getFrom(); i < r.getTo() + DX; i += DX)
+    {
         stack<Token> s;
 
-        for(vector<Token>::iterator it = tokens.begin(); it != tokens.end(); ++it) {
+        for(vector<Token>::iterator it = tokens.begin(); it != tokens.end(); ++it)
+        {
             if(it->isOperator())
             {
                 double operand1 = stod(s.top().getValue());

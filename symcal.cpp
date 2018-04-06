@@ -30,7 +30,8 @@ void SymCal::connectSlots()
     connect(ui->exportButton, SIGNAL(released()), this, SLOT(on_export_triggered()));
 }
 
-OneVarFunctionValues SymCal::precalculateValues() {
+OneVarFunctionValues SymCal::precalculateValues()
+{
 
     double from = ui->calcFromInput->value();
     double to = ui->calcToInput->value();
@@ -64,7 +65,11 @@ void SymCal::addAndFillChart(vector<Point> vals)
     chart->legend()->hide();
     chart->addSeries(series);
     chart->createDefaultAxes();
-    chart->setTitle(QString::fromStdString(func.toInfixNotation()));
+
+    stringstream title;
+    title << func.toInfixNotation() << " || " << func.toPostfixNotation();
+
+    chart->setTitle(QString::fromStdString(title.str()));
 
     ui->chart->setChart(chart);
 
@@ -157,7 +162,8 @@ void SymCal::on_convert_triggered()
     }
 }
 
-void SymCal::on_export_triggered() {
+void SymCal::on_export_triggered()
+{
     {
         try
         {

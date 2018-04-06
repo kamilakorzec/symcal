@@ -23,6 +23,7 @@ Operations::Operations()
     operations = ops;
 }
 
-funcSig Operations::getOperation(char c) {
+funcSig Operations::getOperation(char c)
+{
     return operations.at(c);
 }

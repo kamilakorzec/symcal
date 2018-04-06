@@ -4,7 +4,8 @@
 #include <algorithm>
 #include <ctype.h>
 
-string InputParser::copyString(string input) {
+string InputParser::copyString(string input)
+{
     char* str = new char[input.size() + 1];
     copy(input.begin(), input.end(), str);
     str[input.size()] = '\0';
@@ -12,7 +13,8 @@ string InputParser::copyString(string input) {
     return string(str);
 }
 
-string InputParser::removeSpaces(string str) {
+string InputParser::removeSpaces(string str)
+{
    str.erase(remove_if(str.begin(), str.end(), [](char c)
    {
        return std::isspace(static_cast<unsigned char>(c));
@@ -50,16 +52,19 @@ bool InputParser::validateInfix(string input)
     int openedBrackets = 0;
     Operators o;
 
-    for(unsigned int i=0; i < input.length(); i++) {
+    for(unsigned int i=0; i < input.length(); i++)
+    {
         char c = input[i];
 
-        if(!isdigit(c) && c != 'x') { //ignore all digits
+        if(!isdigit(c) && c != 'x')
+        { //ignore all digits
             if(isalpha(c))
             {
                 return false;
             }
-            else if(c != 'x')
+            else if(c != 'x' && c != '.')
             {   //it can't be digit, space or x - it must be an operator
+                //dot's are valid
                 //there can be only one subsequent operator (different than bracket)
                 if(c == '(')
                 {
@@ -79,7 +84,8 @@ bool InputParser::validateInfix(string input)
                 }
             }
         }
-        else {
+        else
+        {
             if(subsequentOperators)
             {
                 subsequentOperators = 0;
@@ -103,14 +109,22 @@ bool InputParser::validateInfix(string input)
     return true;
 }
 
-bool InputParser::validatePostfix(string input) {
+bool InputParser::validatePostfix(string input)
+{
+    Operators o;
+    for(unsigned int i = 0; i < input.length(); i++) {
+        char c = input[i];
+        if(c != ' ' && !o.isOperator(c) && c != 'x' && c !='.' && !isdigit(c))
+        {
+            return false;
+        }
+    }
     return true;
 }
 
 string InputParser::parsePostfix(string input)
 {
     string str = copyString(input);
-
     bool isValid = validatePostfix(str);
 
     if(isValid)

@@ -129,4 +129,4 @@ void Ui_SymCal::retranslateUi(QMainWindow *SymCal)
     isPostfix->setText(QApplication::translate("SymCal", "Postfix > Infix", nullptr));
 
     enterFormulaLabel->setText(QApplication::translate("SymCal", "Enter formula:", nullptr));
-} // retranslateUi
+}

@@ -9,7 +9,8 @@ OneVarFunction OneVarFunctionParser::fromPostfixNotation(string input)
     stringstream tmp;
     vector<Token> tokens;
 
-    for(unsigned int i = 0; i < input.length(); i++) {
+    for(unsigned int i = 0; i < input.length(); i++)
+    {
         char c = input[i];
 
         bool isOperator = operators.isOperator(c);
@@ -28,7 +29,6 @@ OneVarFunction OneVarFunctionParser::fromPostfixNotation(string input)
             if(!isSpace) {
                 stringstream ss;
                 ss << c;
-                cout << c;
                 Token token(ss.str(), isOperator, isVariable);
                 tokens.push_back(token);
             }
@@ -108,7 +108,6 @@ OneVarFunction OneVarFunctionParser::fromInfixNotation(string input)
 
                         if(c != '(' && c != ')')
                         {
-                            cout << previous.getValue() << endl;
                             tokens.push_back(previous);
                         }
                         queue.pop();
@@ -144,7 +143,6 @@ OneVarFunction OneVarFunctionParser::fromInfixNotation(string input)
 
     for(vector<Token>::iterator it = tokens.begin(); it != tokens.end(); ++it) {
         tmp << it->getValue() << ' ';
-        cout << it->getValue() << endl;
     }
 
     OneVarFunction ovf(tokens, tmp.str(), input);
