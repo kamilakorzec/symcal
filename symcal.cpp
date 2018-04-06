@@ -38,11 +38,18 @@ void SymCal::on_calculateValue_triggered()
 
     if(func.isInitialized())
     {
-        func.calculateValues(range);
+        try
+        {
+            func.calculateValues(range);
+        }
+        catch(invalid_argument e)
+        {
+            cerr << e.what() << endl;
+        }
     }
     else
     {
-        cerr << "Can't calculate: no function!";
+        cerr << "Can't calculate: no function!" << endl;
     }
 
 }

@@ -83,16 +83,17 @@ OneVarFunction OneVarFunctionParser::fromStandardNotation(string input)
                 stringstream ss;
                 ss << c;
 
-                Token previous;
-                int previousPriority = INT_MAX;
-
-                while(!queue.empty() && previousPriority < newPriority)
+                if (!queue.empty())
                 {
-                    previous = queue.top();
-                    previousPriority = operators.getPriority(previous.getValue()[0]);
+                    Token previous = queue.top();
+                    int previousPriority = operators.getPriority(previous.getValue()[0]);
 
-                    tokens.push_back(previous);
-                    queue.pop();
+                    while(!queue.empty() && previousPriority >= newPriority)
+                    {
+                        cout << "P:" << previousPriority << " C:" << newPriority << endl;
+                        tokens.push_back(previous);
+                        queue.pop();
+                    }
                 }
 
                 Token t(ss.str(), isOperator, isVariable);

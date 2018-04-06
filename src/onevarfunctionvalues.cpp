@@ -26,7 +26,7 @@ OneVarFunctionValues::OneVarFunctionValues(Range<double> r, vector<Token> tokens
                 funcSig fun = operations.getOperation(it->getValue()[0]);
 
                 stringstream ss;
-                ss << fun(operand1, operand2);
+                ss << fun(operand2, operand1);
 
                 Token result(ss.str(), false, false);
 
