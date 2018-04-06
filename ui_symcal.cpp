@@ -64,11 +64,11 @@ void Ui_SymCal::setupLayout(QMainWindow *SymCal)
     gridLayout->setContentsMargins(0, 0, 0, 0);
 
     widget = new QWidget(gridLayoutWidget);
-    widget->setObjectName(QStringLiteral("widget"));
+    widget->setObjectName(QStringLiteral("gridLayout"));
 
-    widget_2 = new QWidget(widget);
-    widget_2->setObjectName(QStringLiteral("widget_2"));
-    widget_2->setGeometry(QRect(259, 9, 321, 181));
+    chart = new QChartView(widget);
+    chart->setObjectName(QStringLiteral("chart"));
+    chart->setGeometry(QRect(259, 9, 321, 181));
 
     tableWidget = new QTableWidget(widget);
     tableWidget->setObjectName(QStringLiteral("tableWidget"));

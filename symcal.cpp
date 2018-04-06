@@ -14,7 +14,7 @@ SymCal::SymCal(QWidget *parent) :
     ui(new Ui::SymCal)
 {
     ui->setupUi(this);
-    connectSlots(ui);
+    connectSlots();
 }
 
 SymCal::~SymCal()
@@ -22,10 +22,57 @@ SymCal::~SymCal()
     delete ui;
 }
 
-void SymCal::connectSlots(Ui::SymCal *ui)
+void SymCal::connectSlots()
 {
     connect(ui->calcButton, SIGNAL(released()), this, SLOT(on_calculateValue_triggered()));
     connect(ui->convertButton, SIGNAL(released()), this, SLOT(on_convert_triggered()));
+}
+
+void SymCal::addAndFillChart(vector<Point> vals)
+{
+    QSplineSeries* series = new QSplineSeries();
+
+    for(vector<Point>::iterator it = vals.begin(); it != vals.end(); ++it)
+    {
+        series->append(it->getX(), it->getY());
+    }
+
+    QChart* chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+    chart->setTitle(QString::fromStdString(func.toInfixNotation()));
+
+    ui->chart->setChart(chart);
+
+}
+
+void SymCal::fillTable(vector<Point> vals, Range<double> range)
+{
+    // add two additional rows - range is inclusive and header needs its own row
+    ui->tableWidget->setRowCount((int)(range.getTo()-range.getFrom())/0.01 + 2);
+
+    for(vector<Point>::iterator it = vals.begin(); it != vals.end(); ++it)
+    {
+        int dist = distance(vals.begin(), it);
+
+        QLabel* labelx = new QLabel(ui->tableWidget);
+        QLabel* labely = new QLabel(ui->tableWidget);
+
+        labelx->setText(QString::fromStdString(to_string(it->getX())));
+        labely->setText(QString::fromStdString(to_string(it->getY())));
+
+        ui->tableWidget->setCellWidget(
+                    dist,
+                    0,
+                    labelx
+                    );
+        ui->tableWidget->setCellWidget(
+                    dist,
+                    1,
+                    labely
+                    );
+    }
 }
 
 void SymCal::on_calculateValue_triggered()
@@ -44,29 +91,8 @@ void SymCal::on_calculateValue_triggered()
             OneVarFunctionValues ovfv = func.calculateValues(range);
             vector<Point> vals = ovfv.getValues();
 
-            ui->tableWidget->setRowCount((int)(to-from)/0.01);
-
-            for(vector<Point>::iterator it = vals.begin(); it != vals.end(); ++it)
-            {
-                int dist = distance(vals.begin(), it);
-
-                QLabel* labelx = new QLabel(ui->tableWidget);
-                QLabel* labely = new QLabel(ui->tableWidget);
-
-                labelx->setText(QString::fromStdString(to_string(it->getX())));
-                labely->setText(QString::fromStdString(to_string(it->getY())));
-
-                ui->tableWidget->setCellWidget(
-                            dist,
-                            0,
-                            labelx
-                            );
-                ui->tableWidget->setCellWidget(
-                            dist,
-                            1,
-                            labely
-                            );
-            }
+            fillTable(vals, range);
+            addAndFillChart(vals);
         }
         catch(invalid_argument e)
         {
@@ -93,6 +119,7 @@ void SymCal::on_convert_triggered()
         try
         {
             string parsed = inputParser.parsePostfix(functionFormula);
+            func = functionParser.fromPostfixNotation(parsed);
         }
         catch(invalid_argument e)
         {
@@ -105,10 +132,6 @@ void SymCal::on_convert_triggered()
         {
             string parsed = inputParser.parseInfix(functionFormula);
             func = functionParser.fromInfixNotation(parsed);
-
-            //TODO: remove;
-            cout<<"Input:"<<parsed<<endl;
-            cout<<"Output:"<<func.toPostfixNotation()<<endl;
         }
         catch(invalid_argument e)
         {

@@ -19,7 +19,9 @@ public:
 private:
     Ui::SymCal *ui;
     OneVarFunction func;
-    void connectSlots(Ui::SymCal *ui);
+    void connectSlots();
+    void addAndFillChart(vector<Point> vals);
+    void fillTable(vector<Point> vals, Range<double> range);
 
 private slots:
     void on_export_triggered();

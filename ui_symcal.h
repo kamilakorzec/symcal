@@ -19,6 +19,7 @@
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
+#include <QtCharts>
 
 QT_BEGIN_NAMESPACE
 
@@ -34,7 +35,7 @@ public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
     QWidget *widget;
-    QWidget *widget_2;
+    QChartView *chart;
     QTableWidget *tableWidget;
     QPushButton *calcButton;
     QLabel *inputFromLabel;
